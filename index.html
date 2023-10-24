@@ -22,87 +22,41 @@
 </head>
 
 <body>
-	<main class="d-flex w-100">
-		<div class="container d-flex flex-column">
-			<div class="row vh-100">
-				<div class="col-sm-10  mx-auto d-table h-100">
-					<div class="d-table-cell align-middle">
-
-						<!-- Section: Design Block -->
-						<section class=" text-center text-lg-start">
-							<style>
-							.rounded-t-5 {
-								border-top-left-radius: 0.5rem;
-								border-top-right-radius: 0.5rem;
-							}
-						
-							@media (min-width: 992px) {
-								.rounded-tr-lg-0 {
-								border-top-right-radius: 0;
-								}
-						
-								.rounded-bl-lg-5 {
-								border-bottom-left-radius: 0.5rem;
-								}
-							}
-							</style>
-							<div class="card mb-3">
-							<div class="row g-0 d-flex align-items-center">
-								<div class="col-lg-4 d-none d-lg-flex">
-									<div class="w-96 bg-white rounded-xl" style="padding: 15px;">
-										<div class="flex justify-center mt-2 mb-4" id="whatsauthqr">
-											<div></div>
-										</div>
-										<p class="font-bold text-center mb-4" id="whatsauthcounter"></p>
-										<p class="font-bold text-center mb-4" id="logs"></p>
-									</div>
-								</div>
-								<div class="col-lg-8">
-								<div class="card-body py-5 px-md-5">
-									<div class="text-center mt-4">
-										<img src="static/img/photos/Logo Ulbi Wide Dark.png" alt="" style="width: 200px; margin-bottom: 20px; margin-left: 30%;">
-										<h1 class="h2"><b>Selamat Datang di PMB ULBI</b></h1>
-										<p class="lead">
-											Silahkan Inputkan Email dan Password untuk Login
-										</p>
-									</div>
-									<form id="loginform" onsubmit="event.preventDefault();">
-									<!-- Email input -->
-									<div class="form-outline mb-4">
-										<label class="form-label" for="form2Example1">Username</label>
-										<input type="text" id="user_name" name="user_name" class="form-control" value=""/>
-									</div>
-						
-									<!-- Password input -->
-									<div class="form-outline mb-4">
-										<label class="form-label" for="form2Example2">Password</label>
-										<input type="password" id="user_pass" name="user_pass" class="form-control" value=""/>
-									</div>
-
-									<!-- Remember Me -->
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="form2Example31" name="remember_me" checked />
-										<label class="form-check-label" for="form2Example31"> Remember me </label>
-									</div>
-						
-									<!-- Submit button -->
-									<button id="login" name="login" value="Login" class="btn btn-lg btn-primary" style="width: 100%;">Login</button>
-						
-									</form>
-						
-								</div>
-								</div>
-							</div>
-							</div>
-						</section>
-						<!-- Section: Design Block -->
-						<div class="text-center mb-3">
-							Belum Punya Akun? <a href="pmb.ulbi.ac.id/signup">Register</a>
+	<section class="vh-100" style="background-color: #508bfc;">
+		<div class="container py-5 h-100">
+		  <div class="row d-flex justify-content-center align-items-center h-100">
+			<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+			  <div class="card shadow-2-strong" style="border-radius: 1rem;">
+				<div class="card-body p-5 text-center">
+	  
+					<div class="text-center mt-4">
+						<img src="static/img/photos/Logo Ulbi Wide Dark.png" alt="" style="width: 150px; margin-bottom: 20px; margin-left: 30%;">
+						<h1 class="h2"><b>Selamat Datang di PMB ULBI</b></h1>
+					</div>
+	  
+				  <div id="hasphonenumber" class="flex items-center justify-center">
+					<div class="w-96 bg-white rounded-xl">
+						<!-- <p class="font-bold text-center mb-4" id="useracclog">useragent</p> -->
+						<div class="flex justify-center mt-2 mb-4" id="whatsauthqr">
+							<div></div>
 						</div>
+						<p class="font-bold text-center mb-4" id="whatsauthcounter"></p>
+						<p class="font-bold text-center mb-4" id="logs"></p>
 					</div>
 				</div>
+			
+				<form id="loginform" onsubmit="event.preventDefault();">
+					<input type="hidden" name="user_name" id="user_name" value="">
+					<input type="hidden" name="user_pass" id="user_pass" value="">
+					<input type="hidden" name="remember_me" value="y">
+					<button id="login" name="login" value="Login" class="button"></button>
+				</form>
+				</div>
+			  </div>
 			</div>
+		  </div>
 		</div>
+	  </section>
 	</main>
 
 	<script>
