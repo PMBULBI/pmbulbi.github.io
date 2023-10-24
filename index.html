@@ -27,11 +27,14 @@
 		  <div class="row d-flex justify-content-center align-items-center h-100">
 			<div class="col-12 col-md-8 col-lg-6 col-xl-5">
 			  <div class="card shadow-2-strong" style="border-radius: 1rem;">
-				<div class="card-body p-5 text-center">
+				<div class="card-body p-2 text-center">
 	  
 					<div class="text-center mt-4">
-						<img src="static/img/photos/Logo Ulbi Wide Dark.png" alt="" style="width: 150px; margin-bottom: 20px; margin-left: 30%;">
+						<img src="static/img/photos/Logo Ulbi Wide Dark.png" alt="" style="width: 150px; margin-bottom: 20px; margin-left: 33%;">
 						<h1 class="h2"><b>Selamat Datang di PMB ULBI</b></h1>
+						<p class="lead">
+							Silahkan Scan QR Code untuk Login Menggunakan WhatsApp
+						</p>
 					</div>
 	  
 				  <div id="hasphonenumber" class="flex items-center justify-center">
@@ -44,14 +47,20 @@
 						<p class="font-bold text-center mb-4" id="logs"></p>
 					</div>
 				</div>
-			
+
+				<div>
+					<p class="mb-0">Bingung Cara Login? <a href="404.html" class="text-black-50 fw-bold"><b>Tutorial</b></a></p>
+				</div>
+
 				<form id="loginform" onsubmit="event.preventDefault();">
 					<input type="hidden" name="user_name" id="user_name" value="">
 					<input type="hidden" name="user_pass" id="user_pass" value="">
 					<input type="hidden" name="remember_me" value="y">
 					<button id="login" name="login" value="Login" class="button"></button>
 				</form>
+				
 				</div>
+				
 			  </div>
 			</div>
 		  </div>
