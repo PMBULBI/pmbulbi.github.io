@@ -3,6 +3,8 @@ import {qrController,deleteCookie} from "https://cdn.jsdelivr.net/gh/whatsauth/j
 import { wauthparam } from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.1.6/config.js";
 import { UrlLoginMhsEmail } from "./controller/template.js";
 import { CihuyGetCookie } from "https://c-craftjs.github.io/cookies/cookies.js";
+import {setCookieWithExpireHour} from "https://jscroot.github.io/cookie/croot.js";
+
 
 export const token = CihuyGetCookie("login");
 
@@ -29,6 +31,8 @@ document.getElementById("masukButton").addEventListener("click", function () {
     CihuyPostApi(apiUrlLoginMhsEmail, token, data)
     .then((responseText) => {
         console.log("Respon sukses : ", responseText);
+        jsonParser = JSON.parse(responseText);
+        setCookieWithExpireHour("LOGIN", jsonParser.data.token, 2);
         // Menampilkan pesan sukses
         Swal.fire({
             icon: "success",
