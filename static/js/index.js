@@ -31,7 +31,7 @@ document.getElementById("masukButton").addEventListener("click", function () {
     CihuyPostApi(apiUrlLoginMhsEmail, token, data)
     .then((responseText) => {
         console.log("Respon sukses : ", responseText);
-        jsonParser = JSON.parse(responseText);
+        const jsonParser = JSON.parse(responseText);
         setCookieWithExpireHour("LOGIN", jsonParser.data.token, 2);
         // Menampilkan pesan sukses
         Swal.fire({
