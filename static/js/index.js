@@ -32,7 +32,7 @@ document.getElementById("masukButton").addEventListener("click", function () {
     .then((responseText) => {
         console.log("Respon sukses : ", responseText);
         const jsonParser = JSON.parse(responseText);
-        setCookieWithExpireHour("LOGIN", jsonParser.data.token, 2);
+        setCookieWithExpireHour("login", jsonParser.data.token, 2);
         // Menampilkan pesan sukses
         Swal.fire({
             icon: "success",
