@@ -37,7 +37,8 @@ document.getElementById('masukButton').addEventListener('click', function () {
           icon: 'success',
           title: 'Login Berhasil',
           text: 'Anda berhasil login!',
-          confirmButtonText: 'OK'
+          showConfirmButton: false,
+          timer: 1500
         }).then(() => {
           // Redirect ke halaman tujuan setelah menekan OK pada swal success
           window.location.href = 'https://pmb.ulbi.ac.id/pmb-mhs';
@@ -49,8 +50,9 @@ document.getElementById('masukButton').addEventListener('click', function () {
         Swal.fire({
           icon: 'error',
           title: 'Login Gagal',
-          text: `Terjadi kesalahan: ${responSiJson.status}`
+          text: `Anda gagal login!`
         });
+        console.log(responSiJson.status)
       }
     })
     .catch(error => {
