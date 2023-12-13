@@ -14,71 +14,53 @@ wauthparam.keyword = "aHR0cHM6Ly93YS5tZS82MjgxMTIwMDAyNzk/dGV4dD13aDR0NWF1dGgwLm
 deleteCookie(wauthparam.tokencookiename);
 qrController(wauthparam);
 
-// // Login Mahasiswa with Email & Password
-// document.getElementById("masukButton").addEventListener("click", function () {
-//     // Untuk ambil nilai dari form
-//     const email = document.getElementById("Email").value;
-//     const password = document.getElementById("Password").value;
-
-//     // Buat Data untuk postnya
-//     const data = {
-//         email: email,
-//         password: password
-//     };
-
-//     // Untuk Login via Email
-//     const apiUrlLoginMhsEmail = UrlLoginMhsEmail
-
-//     CihuyPostApi(apiUrlLoginMhsEmail, token, data)
-//     .then((responseText) => {
-//         console.log("Respon sukses : ", responseText);
-//         const jsonParser = JSON.parse(responseText);
-//         setCookieWithExpireHour("login", jsonParser.data.token, 2);
-//         // Menampilkan pesan sukses
-//         Swal.fire({
-//             icon: "success",
-//             title: "Sukses!",
-//             text: "Berhasil masuk ke PMB Mahasiswa.",
-//             showConfirmButton: false,
-//             timer: 1500,
-//         }).then(() => {
-//             // Refresh halaman atau tindakan lain jika diperlukan
-//             window.location.href = 'https://pmb.ulbi.ac.id/pmb-mhs';
-//         });
-//     })
-//     .catch((error) => {
-//         console.error("Terjadi kesalahan : ", error);
-//         Swal.fire({
-//             icon: "error",
-//             title: "Oops...",
-//             text: "Terjadi kesalahan saat login akun.",
-//         });
-//     });
-// })
-
 document.getElementById('masukButton').addEventListener('click', function () {
-    const emailOrPhone = document.getElementById('handphoneoremail').value;
-    const password = document.getElementById('Password').value;
-  
-    const postData = {
-      email: emailOrPhone,
-      password: password
-    };
-  
-    const apiUrl = 'https://komarbe.ulbi.ac.id/pendaftar/login/email';
-    CihuyPostWithoutToken(apiUrl, postData)
+  const emailOrPhone = document.getElementById('handphoneoremail').value;
+  const password = document.getElementById('Password').value;
+
+  const postData = {
+    email: emailOrPhone,
+    password: password
+  };
+
+  const apiUrl = 'https://komarbe.ulbi.ac.id/pendaftar/login/email';
+  CihuyPostWithoutToken(apiUrl, postData)
     .then(responnya => {
       console.log('Response:', responnya);
       const responSiJson = JSON.parse(responnya);
       if (responSiJson.code === 200 && responSiJson.success) {
         const token = responSiJson.data.token;
         document.cookie = `login=${token}; path=/`;
-        window.location.href = 'https://pmb.ulbi.ac.id/pmb-mhs';
+
+        // Menampilkan swal untuk pesan keberhasilan
+        Swal.fire({
+          icon: 'success',
+          title: 'Login Berhasil',
+          text: 'Anda berhasil login!',
+          confirmButtonText: 'OK'
+        }).then(() => {
+          // Redirect ke halaman tujuan setelah menekan OK pada swal success
+          window.location.href = 'https://pmb.ulbi.ac.id/pmb-mhs';
+        });
       } else {
         console.error('Login failed:', responSiJson.status);
+        
+        // Menampilkan swal untuk pesan kesalahan
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Gagal',
+          text: `Terjadi kesalahan: ${responSiJson.status}`
+        });
       }
     })
     .catch(error => {
       console.error('Error:', error);
+
+      // Menampilkan swal untuk pesan kesalahan
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: `Terjadi kesalahan: ${error.message}`
+      });
     });
 });
