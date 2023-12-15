@@ -50,7 +50,7 @@ document.getElementById('masukButton').addEventListener('click', function () {
         Swal.fire({
           icon: 'error',
           title: 'Login Gagal',
-          text: `Anda gagal login!`
+          text: `Username dan Password Salah!`
         });
         console.log(responSiJson.status)
       }
@@ -62,7 +62,7 @@ document.getElementById('masukButton').addEventListener('click', function () {
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: `Terjadi kesalahan: ${error.message}`
+        text: `Username dan Password Salah`
       });
     });
 });
