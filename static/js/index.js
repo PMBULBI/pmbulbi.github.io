@@ -40,8 +40,8 @@ document.getElementById('masukButton').addEventListener('click', function () {
           showConfirmButton: false,
           timer: 1500
         }).then(() => {
-          // Redirect ke halaman tujuan setelah menekan OK pada swal success
-          window.location.href = 'https://pmb.ulbi.ac.id/pmb-mhs';
+          // Redirect ke halaman auth setelah menekan OK pada swal success
+          window.location.href = 'https://pmb.ulbi.ac.id/auth';
         });
       } else {
         console.error('Login failed:', responSiJson.status);
